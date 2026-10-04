@@ -30,7 +30,7 @@ const presidentes = [
         foto: "lula.jpg",
         numero: 13,
         partido: "PT",
-        votos: 0
+        votos: 9.200.605
     },
 
     {
@@ -39,7 +39,7 @@ const presidentes = [
         foto: "flavio.jpg",
         numero: 22,
         partido: "PL",
-        votos: 0
+        votos: 11,550.890
     },
 
     {
