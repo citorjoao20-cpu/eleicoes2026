@@ -989,7 +989,7 @@ const deputadosEstaduaisSP = [
     {
         nome: "Abdul Jarour",
         cargo: "Deputado Estadual",
-        foto: "abdul-jarour.webp",
+        foto: "abdul-jarour.jpg",
         numero: 40999,
         partido: "PSB",
         votos: 0
