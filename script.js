@@ -460,7 +460,7 @@ const deputadosFederaisRJ = [
     {
         nome: "Thiago Gagliasso",
         cargo: "Deputado Federal",
-        foto: "thiago-gagliasso.webp",
+        foto: "thiago-gagliasso.avif",
         numero: 2227,
         partido: "PL",
         votos: 0
