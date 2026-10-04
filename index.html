@@ -2,6 +2,15 @@
 <html lang="pt-BR">
 
 <head>
+
+<script>
+    if (!sessionStorage.getItem("acessoResultados")) {
+        window.location.href = "inicio.html";
+    } else {
+        sessionStorage.removeItem("acessoResultados");
+    }
+ </script>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
