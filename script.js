@@ -2,10 +2,20 @@
 // CONFIGURAÇÕES
 // =============================================
 
-const CONFIG = {
-    estadoPadrao: "RJ",
-    votosIniciais: 0
+// ===============================
+// CONEXÃO COM RESULTADOS DO TSE
+// ===============================
+
+const TSE = {
+    ambiente: "oficial",
+    baseURL: "https://resultados.tse.jus.br"
 };
+
+// Controle da atualização automática
+let ultimaAtualizacaoTSE = null;
+let atualizacaoEmAndamento = false;
+
+console.log("Sistema TSE preparado:", TSE.baseURL);
 
 
 // =============================================
@@ -53,7 +63,7 @@ const presidentes = [
     {
         nome: "Hertz Dias",
         cargo: "Presidente",
-        foto: "hertz.webp",
+        foto: "hertz1.jpg",
         numero: 16,
         partido: "PSTU",
         votos: 0
@@ -460,7 +470,7 @@ const deputadosFederaisRJ = [
     {
         nome: "Thiago Gagliasso",
         cargo: "Deputado Federal",
-        foto: "thiago-gagliasso.avif",
+        foto: "thiago-gagliasso.webp",
         numero: 2227,
         partido: "PL",
         votos: 0
@@ -989,7 +999,7 @@ const deputadosEstaduaisSP = [
     {
         nome: "Abdul Jarour",
         cargo: "Deputado Estadual",
-        foto: "abdul-jarour.jpg",
+        foto: "abdul-jarour.webp",
         numero: 40999,
         partido: "PSB",
         votos: 0
@@ -1648,4 +1658,416 @@ function criarAvisoFonteTSE() {
 
 
 // Criar o aviso depois que a página carregar
-criarAvisoFonteTSE();
+criarAvisoFonteTSE(); 
+// ===============================
+// ATUALIZAÇÃO AUTOMÁTICA - TSE
+// ===============================
+
+const TSE_RESULTADOS = {
+    base: "https://resultados.tse.jus.br/oficial/ele2026",
+
+    presidente: {
+        eleicao: "6257",
+        cargo: "0001",
+        uf: "br"
+    },
+
+    estadual: {
+        eleicao: "6259"
+    }
+};
+
+
+// Busca um arquivo JSON do TSE
+async function buscarTSE(url) {
+
+    try {
+
+        const resposta = await fetch(
+            url + "?t=" + Date.now(),
+            {
+                cache: "no-store"
+            }
+        );
+
+        if (!resposta.ok) {
+            throw new Error("TSE HTTP " + resposta.status);
+        }
+
+        return await resposta.json();
+
+    } catch (erro) {
+
+        console.error("Erro ao buscar TSE:", erro);
+
+        return null;
+    }
+}
+
+
+// ===============================
+// PRESIDENTE
+// ===============================
+
+async function atualizarPresidenteTSE() {
+
+    const config = TSE_RESULTADOS.presidente;
+
+    const url =
+        `${TSE_RESULTADOS.base}/${config.eleicao}/dados/${config.uf}/` +
+        `${config.uf}-c${config.cargo}-e00${config.eleicao}-u.json`;
+
+    console.log("Buscando Presidente:", url);
+
+    const dados = await buscarTSE(url);
+
+    if (!dados) return;
+
+    console.log("Dados do Presidente recebidos do TSE:", dados);
+
+    atualizarListaComTSE(
+        dados,
+        "lista-presidente",
+        presidentes
+    );
+}
+
+
+// ===============================
+// GOVERNADOR / SENADOR / DEPUTADOS
+// ===============================
+
+async function atualizarEstadualTSE() {
+
+    const estado =
+        document.getElementById("estadoGovernador")?.value ||
+        document.getElementById("estadoSenador")?.value ||
+        document.getElementById("estadoDeputadoFederal")?.value ||
+        document.getElementById("estadoDeputadoEstadual")?.value ||
+        CONFIG.estadoPadrao;
+
+    const uf = estado.toLowerCase();
+
+    const cargos = [
+        {
+            codigo: "0003",
+            container: "lista-governador"
+        },
+        {
+            codigo: "0005",
+            container: "lista-senador"
+        },
+        {
+            codigo: "0006",
+            container: "lista-deputado-federal"
+        },
+        {
+            codigo: "0007",
+            container: "lista-deputado-estadual"
+        }
+    ];
+
+    for (const cargo of cargos) {
+
+        const url =
+            `${TSE_RESULTADOS.base}/6259/dados/${uf}/` +
+            `${uf}-c${cargo.codigo}-e006259-u.json`;
+
+        console.log(
+            "Buscando TSE:",
+            cargo.codigo,
+            uf,
+            url
+        );
+
+        const dados = await buscarTSE(url);
+
+        if (!dados) continue;
+
+        atualizarListaComTSE(
+            dados,
+            cargo.container
+        );
+    }
+}
+
+
+// ===============================
+// INTERPRETA OS DADOS DO TSE
+// ===============================
+
+function atualizarListaComTSE(
+    dados,
+    containerId,
+    listaManual
+) {
+
+    const container =
+        document.getElementById(containerId);
+
+    if (!container) return;
+
+    /*
+     * O TSE pode devolver estruturas diferentes
+     * conforme o cargo/abrangência.
+     * Procuramos automaticamente a lista
+     * de candidatos dentro do JSON.
+     */
+
+    const candidatosTSE =
+        encontrarCandidatos(dados);
+
+    if (!candidatosTSE.length) {
+
+        console.warn(
+            "Nenhum candidato encontrado no arquivo TSE:",
+            containerId
+        );
+
+        return;
+    }
+
+    console.log(
+        "Candidatos TSE encontrados:",
+        candidatosTSE.length
+    );
+
+
+    // Se já temos uma lista manual,
+    // atualizamos os votos pelo número.
+    if (Array.isArray(listaManual)) {
+
+        listaManual.forEach(candidato => {
+
+            const numero =
+                String(candidato.numero);
+
+            const encontrado =
+                candidatosTSE.find(c =>
+                    String(c.numero) === numero
+                );
+
+            if (encontrado) {
+
+                candidato.votos =
+                    Number(encontrado.votos || 0);
+            }
+
+        });
+
+        renderizarCandidatos(
+            listaManual,
+            containerId
+        );
+
+        return;
+    }
+
+
+    // Caso não exista lista manual,
+    // cria a lista diretamente do TSE.
+
+    const lista = candidatosTSE.map(c => ({
+
+        nome: c.nome,
+        numero: c.numero,
+        partido: c.partido,
+        votos: Number(c.votos || 0),
+        imagem: ""
+    }));
+
+
+    renderizarCandidatos(
+        lista,
+        containerId
+    );
+}
+
+
+// ===============================
+// LOCALIZA CANDIDATOS NO JSON
+// ===============================
+
+function encontrarCandidatos(obj) {
+
+    const encontrados = [];
+
+    function percorrer(valor) {
+
+        if (!valor || typeof valor !== "object") {
+            return;
+        }
+
+        if (Array.isArray(valor)) {
+
+            valor.forEach(item => {
+
+                if (
+                    item &&
+                    typeof item === "object"
+                ) {
+
+                    const numero =
+                        item.n ||
+                        item.nu ||
+                        item.numero ||
+                        item.nm ||
+                        item.num;
+
+                    const nome =
+                        item.nm ||
+                        item.nome ||
+                        item.nmcan;
+
+                    const votos =
+                        item.vap ||
+                        item.vv ||
+                        item.votos ||
+                        item.v;
+
+                    if (
+                        numero !== undefined &&
+                        nome
+                    ) {
+
+                        encontrados.push({
+
+                            numero: numero,
+
+                            nome: nome,
+
+                            partido:
+                                item.sg ||
+                                item.p ||
+                                item.partido ||
+                                "",
+
+                            votos:
+                                Number(votos || 0)
+                        });
+                    }
+                }
+
+                percorrer(item);
+            });
+
+            return;
+        }
+
+
+        Object.keys(valor).forEach(chave => {
+
+            percorrer(valor[chave]);
+
+        });
+    }
+
+    percorrer(obj);
+
+
+    // remove duplicados
+    const unicos = [];
+
+    encontrados.forEach(candidato => {
+
+        const existe =
+            unicos.some(c =>
+                String(c.numero) ===
+                String(candidato.numero)
+            );
+
+        if (!existe) {
+            unicos.push(candidato);
+        }
+    });
+
+    return unicos;
+}
+
+
+// ===============================
+// ATUALIZAÇÃO AUTOMÁTICA
+// ===============================
+
+async function atualizarResultadosTSE() {
+
+    if (atualizacaoEmAndamento) {
+        return;
+    }
+
+    atualizacaoEmAndamento = true;
+
+    console.log(
+        "🔄 Atualizando resultados pelo TSE..."
+    );
+
+    try {
+
+        await atualizarPresidenteTSE();
+
+        await atualizarEstadualTSE();
+
+
+        const agora = new Date();
+
+        const horario =
+            agora.toLocaleTimeString(
+                "pt-BR",
+                {
+                    hour: "2-digit",
+                    minute: "2-digit",
+                    second: "2-digit"
+                }
+            );
+
+
+        const status =
+            document.querySelector(
+                ".ultima-atualizacao"
+            );
+
+        if (status) {
+
+            status.textContent =
+                "Última atualização: " +
+                horario;
+        }
+
+
+        ultimaAtualizacaoTSE =
+            agora;
+
+        console.log(
+            "✅ Resultados atualizados:",
+            horario
+        );
+
+    } catch (erro) {
+
+        console.error(
+            "Erro na atualização TSE:",
+            erro
+        );
+
+    } finally {
+
+        atualizacaoEmAndamento = false;
+    }
+}
+
+
+// ===============================
+// INICIA ATUALIZAÇÃO
+// ===============================
+
+setTimeout(
+    atualizarResultadosTSE,
+    1000
+);
+
+
+// Atualiza a cada 30 segundos
+setInterval(
+    atualizarResultadosTSE,
+    30000
+);
