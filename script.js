@@ -30,7 +30,7 @@ const presidentes = [
         foto: "lula.jpg",
         numero: 13,
         partido: "PT",
-        votos: 9.200.605
+        votos: 10.200.605
     },
 
     {
@@ -39,7 +39,7 @@ const presidentes = [
         foto: "flavio.jpg",
         numero: 22,
         partido: "PL",
-        votos: 11,550.890
+        votos: 12,550.890
     },
 
     {
@@ -48,7 +48,7 @@ const presidentes = [
         foto: "samara.webp",
         numero: 80,
         partido: "UP",
-        votos: 0
+        votos: 24.230
     },
 
     {
@@ -57,7 +57,7 @@ const presidentes = [
         foto: "zema.jpg",
         numero: 30,
         partido: "NOVO",
-        votos: 0
+        votos: 5.345
     },
 
     {
@@ -66,7 +66,7 @@ const presidentes = [
         foto: "hertz1.jpg",
         numero: 16,
         partido: "PSTU",
-        votos: 0
+        votos: 8.120
     },
 
     {
@@ -75,7 +75,7 @@ const presidentes = [
         foto: "edmilson.webp",
         numero: 21,
         partido: "PCB",
-        votos: 0
+        votos: 4.205
     },
 
     {
@@ -84,7 +84,7 @@ const presidentes = [
         foto: "renan.webp",
         numero: 14,
         partido: "MISSÃO",
-        votos: 0
+        votos: 510.754
     },
 
     {
@@ -93,7 +93,7 @@ const presidentes = [
         foto: "caiado.png",
         numero: 55,
         partido: "PSD",
-        votos: 0
+        votos: 537.790
     },
 
     {
@@ -102,7 +102,7 @@ const presidentes = [
         foto: "rui.jpg",
         numero: 29,
         partido: "PCO",
-        votos: 0
+        votos: 3.887
     },
 
     {
@@ -111,7 +111,7 @@ const presidentes = [
         foto: "wilson.jpg",
         numero: 35,
         partido: "DEMOCRATA",
-        votos: 0
+        votos: 2.835
     },
 
     {
@@ -120,7 +120,7 @@ const presidentes = [
         foto: "clariana.jpg",
         numero: 27,
         partido: "DC",
-        votos: 0
+        votos: 9.899
     },
 
     {
@@ -129,7 +129,7 @@ const presidentes = [
         foto: "cury.jpeg",
         numero: 70,
         partido: "DC",
-        votos: 0
+        votos: 1.932
     }
 
 ];
