@@ -7,12 +7,128 @@
 
     <title>Eleições 2026</title>
 
-    <link rel="stylesheet" href="inicio.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f7fb;
+            color: #1e293b;
+        }
+
+        #entrada {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1e40af, #2563eb);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 30px;
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        #entrada.saindo {
+            opacity: 0;
+            transform: translateY(-30px);
+            pointer-events: none;
+        }
+
+        .entrada-conteudo {
+            max-width: 700px;
+        }
+
+        .entrada-conteudo h1 {
+            font-size: 52px;
+            margin-bottom: 15px;
+        }
+
+        .entrada-subtitulo {
+            font-size: 25px;
+            margin-bottom: 20px;
+        }
+
+        .entrada-conteudo p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        button {
+            margin-top: 30px;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            background: white;
+            color: #1e40af;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            transform: scale(1.03);
+        }
+
+        #informacoes {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 60px 25px;
+        }
+
+        #informacoes section {
+            background: white;
+            margin-bottom: 25px;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+        }
+
+        #informacoes h2 {
+            color: #1e40af;
+            margin-bottom: 15px;
+        }
+
+        #informacoes p {
+            line-height: 1.7;
+            color: #475569;
+        }
+
+        #informacoes .final {
+            text-align: center;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            background: #0f172a;
+            color: white;
+        }
+
+        footer p {
+            margin: 8px 0;
+        }
+
+        @media (max-width: 600px) {
+            .entrada-conteudo h1 {
+                font-size: 38px;
+            }
+
+            .entrada-subtitulo {
+                font-size: 21px;
+            }
+
+            .entrada-conteudo p {
+                font-size: 16px;
+            }
+        }
+    </style>
 </head>
 
 <body>
-
-    <!-- TELA DE ENTRADA -->
 
     <section id="entrada">
 
@@ -37,8 +153,6 @@
 
     </section>
 
-
-    <!-- CONTEÚDO INFORMATIVO -->
 
     <main id="informacoes">
 
