@@ -3,11 +3,8 @@
 // =============================================
 
 const CONFIG = {
-
     estadoPadrao: "RJ",
-
     votosIniciais: 0
-
 };
 
 
@@ -56,7 +53,7 @@ const presidentes = [
     {
         nome: "Hertz Dias",
         cargo: "Presidente",
-        foto: "hertz.jpg",
+        foto: "hertz1.jpg",
         numero: 16,
         partido: "PSTU",
         votos: 0
@@ -135,6 +132,15 @@ const presidentes = [
 const governadoresRJ = [
 
     {
+        nome: "Douglas Ruas",
+        cargo: "Governador",
+        foto: "douglas-ruas.jpg",
+        numero: 22,
+        partido: "PL",
+        votos: 0
+    },
+
+    {
         nome: "André Marinho",
         cargo: "Governador",
         foto: "andre-marinho.webp",
@@ -158,15 +164,6 @@ const governadoresRJ = [
         foto: "cyro-garcia.jpg",
         numero: 16,
         partido: "PSTU",
-        votos: 0
-    },
-
-    {
-        nome: "Douglas Ruas",
-        cargo: "Governador",
-        foto: "douglas-ruas.jpg",
-        numero: 22,
-        partido: "PL",
         votos: 0
     },
 
@@ -315,6 +312,52 @@ const senadoresRJ = [
     },
 
     {
+    nome: "Carlos Jordy",
+    cargo: "Senador",
+    foto: "carlos-jordy.jpg",
+    numero: 221,
+    partido: "PL",
+    votos: 0
+},
+
+{
+    nome: "Waguinho",
+    cargo: "Senador",
+    foto: "waguinho.avif",
+    numero: 101,
+    partido: "REPUBLICANOS",
+    votos: 0
+},
+
+{
+    nome: "Marcos Dias",
+    cargo: "Senador",
+    foto: "marcos-dias.avif",
+    numero: 200,
+    partido: "PODE",
+    votos: 0
+},
+
+{
+    nome: "Mônica Benício",
+    cargo: "Senador",
+    foto: "monica-benicio.jpeg",
+    numero: 500,
+    partido: "PSOL",
+    votos: 0
+},
+
+{
+    nome: "Luciano Mattos",
+    cargo: "Senador",
+    foto: "luciano-mattos.jpg",
+    numero: 280,
+    partido: "PRTB",
+    votos: 0
+},
+
+
+    {
         nome: "Marcelo Crivella",
         cargo: "Senador",
         foto: "crivella.jpg",
@@ -360,6 +403,16 @@ const senadoresSP = [
     },
 
     {
+    nome: "Geraldo Rufino",
+    cargo: "Senador",
+    foto: "geraldo-rufino.jpg",
+    numero: 200,
+    partido: "PODE",
+    votos: 0
+},
+
+
+    {
         nome: "Guilherme Derrite",
         cargo: "Senador",
         foto: "guilherme-derrite.jpg",
@@ -403,6 +456,87 @@ const senadoresSP = [
 // =============================================
 
 const deputadosFederaisRJ = [
+
+    {
+        nome: "Thiago Gagliasso",
+        cargo: "Deputado Federal",
+        foto: "thiago-gagliasso.webp",
+        numero: 2227,
+        partido: "PL",
+        votos: 0
+    },
+
+    {
+    nome: "Nikolas Ferreira",
+    cargo: "Deputado Federal",
+    foto: "nikolas-ferreira.webp",
+    numero: 2222,
+    partido: "PL",
+    votos: 0
+},
+
+{
+    nome: "Renato Cozzolino",
+    cargo: "Deputado Federal",
+    foto: "renato-cozzolino.webp",
+    numero: 1101,
+    partido: "PP",
+    votos: 0
+},
+
+{
+    nome: "Edmundo",
+    cargo: "Deputado Federal",
+    foto: "edmundo.webp", 
+    numero: 4500,
+    partido: "PSDB",
+    votos: 0
+},
+
+{
+    nome: "Otoni de Paula",
+    cargo: "Deputado Federal",
+    foto: "otoni-de-paula.jpg",
+    numero: 5550,
+    partido: "PSD",
+    votos: 0
+},
+
+{
+    nome: "Luiz Lima",
+    cargo: "Deputado Federal",
+    foto: "luiz-lima.jpg",
+    numero: 3030,
+    partido: "NOVO",
+    votos: 0
+},
+
+{
+    nome: "Eduardo Bandeira de Mello",
+    cargo: "Deputado Federal",
+    foto: "bandeira-de-mello.jpg",
+    numero: 4333,
+    partido: "PV",
+    votos: 0
+},
+
+{
+    nome: "Marcos Braz",
+    cargo: "Deputado Federal",
+    foto: "marcos-braz.jpg",
+    numero: 4555,
+    partido: "PSDB",
+    votos: 0
+},
+
+    {
+    nome: "Luan Lennon",
+    cargo: "Deputado Federal",
+    foto: "luan-lennon.webp",
+    numero: 1188,
+    partido: "PP",
+    votos: 0
+},
 
     {
         nome: "Adalberto",
@@ -458,16 +592,50 @@ const deputadosFederaisRJ = [
 
 const deputadosFederaisSP = [
 
-    
-        {
-    nome: "Adams Coletivo Com Cury",
+    {
+        nome: "Adams Coletivo Com Cury",
+        cargo: "Deputado Federal",
+        foto: "adams-coletivo-com-cury.jpeg",
+        numero: 7075,
+        partido: "AVANTE",
+        votos: 0
+    },
+
+    {
+    nome: "Manoel Gomes",
     cargo: "Deputado Federal",
-    foto: "adams-coletivo-com-cury.jpeg",
-    numero: 7075,
+    foto: "manoel-gomes.webp",
+    numero: 7030,
     partido: "AVANTE",
     votos: 0
-  },
+},
+    {
+    nome: "Alex Manente",
+    cargo: "Deputado Federal",
+    foto: "alex-manente.jpg",
+    numero: 2323,
+    partido: "CIDADANIA",
+    votos: 0
+},
 
+    {
+    nome: "Adrilles Jorge",
+    cargo: "Deputado Federal",
+    foto: "adrilles-jorge.avif",
+    numero: 4401,
+    partido: "UNIÃO",
+    votos: 0
+},
+
+    {
+    nome: "Adriana Ventura",
+    cargo: "Deputado Federal",
+    foto: "adriana-ventura.jpg",
+    numero: 3030,
+    partido: "NOVO",
+    votos: 0
+},
+ 
     {
         nome: "Abel Fiel",
         cargo: "Deputado Federal",
@@ -514,6 +682,69 @@ const deputadosFederaisSP = [
 const deputadosEstaduaisRJ = [
 
     {
+        nome: "Valdecy da Saúde",
+        cargo: "Deputado Estadual",
+        foto: "Valdecy-da-Saúde.jpg",
+        numero: 22615,
+        partido: "PL",
+        votos: 0
+    },
+
+    {
+    nome: "Jackson Souza",
+    cargo: "Deputado Estadual",
+    foto: "jackson-souza.jpg",
+    numero: 27027,
+    partido: "DC",
+    votos: 0
+    },
+
+    {
+    nome: "Dra. Gabriela",
+    cargo: "Deputado Estadual",
+    foto: "dra-gabriela.jpeg",
+    numero: 22122,
+    partido: "PL",
+    votos: 0
+},
+
+{
+    nome: "Guilherme Delaroli",
+    cargo: "Deputado Estadual",
+    foto: "guilherme-delaroli.jpg",
+    numero: 22222,
+    partido: "PL",
+    votos: 0
+},
+
+{
+    nome: "Cabo Pereira",
+    cargo: "Deputado Federal",
+    foto: "cabo-pereira.webp",
+    numero: 7062,
+    partido: "AVANTE",
+    votos: 0
+},
+
+    {
+        nome: "Renata Souza",
+        cargo: "Deputado Estadual",
+        foto: "renata-souza.webp",
+        numero: 50007,
+        partido: "PSOL",
+        votos: 0
+    },
+
+    {
+        nome: "Márcio Canella",
+        cargo: "Deputado Estadual",
+        foto: "marcio-canella.jpg",
+        numero: 44444,
+        partido: "UNIÃO",
+        votos: 0
+    },
+
+    {
         nome: "Dionisio de Souza Lins",
         cargo: "Deputado Estadual",
         foto: "dionisio-de-souza-lins.webp",
@@ -532,7 +763,7 @@ const deputadosEstaduaisRJ = [
     },
 
     {
-        nome: "Tatiana de Paula Oliveira Lima",
+        nome: "Tatiana Oliveira",
         cargo: "Deputado Estadual",
         foto: "tatiana-de-paula.webp",
         numero: 11456,
@@ -541,7 +772,7 @@ const deputadosEstaduaisRJ = [
     },
 
     {
-        nome: "Jacivania Cristina Dias",
+        nome: "Cris da Sustentabilidade",
         cargo: "Deputado Estadual",
         foto: "jacivania-cristina-dias.jpg",
         numero: 25220,
@@ -550,12 +781,156 @@ const deputadosEstaduaisRJ = [
     },
 
     {
-        nome: "Rubens de Araujo Pires",
+        nome: "Rubens da Indicação Social",
         cargo: "Deputado Estadual",
         foto: "rubens-de-araujo-pires.webp",
         numero: 11155,
         partido: "PP",
-        votos: 0   
+        votos: 0
+    },
+
+    {
+        nome: "Alan Lopes",
+        cargo: "Deputado Estadual",
+        foto: "alan-lopes.jpg",
+        numero: 22377,
+        partido: "PL",
+        votos: 0
+    },
+
+    {
+        nome: "Alexandre Freitas",
+        cargo: "Deputado Estadual",
+        foto: "alexandre-freitas.jpg",
+        numero: 30007,
+        partido: "NOVO",
+        votos: 0
+    },
+
+    {
+        nome: "Alexandre Isquierdo Malafaia",
+        cargo: "Deputado Estadual",
+        foto: "alexandre-isquierdo-malafaia.jpg",
+        numero: 22077,
+        partido: "PL",
+        votos: 0
+    },
+
+    {
+        nome: "Alexandre Knoploch",
+        cargo: "Deputado Estadual",
+        foto: "alexandre-knoploch.jpeg",
+        numero: 22722,
+        partido: "PL",
+        votos: 0
+    },
+
+    {
+        nome: "Adilson Pires",
+        cargo: "Deputado Estadual",
+        foto: "adilson-pires.webp",
+        numero: 13620,
+        partido: "PT",
+        votos: 0
+    },
+
+    {
+        nome: "Alan Mansur",
+        cargo: "Deputado Estadual",
+        foto: "alan-mansur.jpg",
+        numero: 40222,
+        partido: "PSB",
+        votos: 0
+    },
+
+    {
+        nome: "Aguinaldo Luis",
+        cargo: "Deputado Estadual",
+        foto: "aguinaldo-luis.webp",
+        numero: 55007,
+        partido: "PSD",
+        votos: 0
+    },
+
+    {
+        nome: "Adriana França",
+        cargo: "Deputado Estadual",
+        foto: "adriana-franca.webp",
+        numero: 10345,
+        partido: "REPUBLICANOS",
+        votos: 0
+    },
+
+    {
+        nome: "Conrado",
+        cargo: "Deputado Estadual",
+        foto: "conrado.jpeg",
+        numero: 27200,
+        partido: "DC",
+        votos: 0
+    },
+
+    {
+        nome: "Sargento Britto",
+        cargo: "Deputado Estadual",
+        foto: "sargento-britto.jpg",
+        numero: 10001,
+        partido: "REPUBLICANOS",
+        votos: 0
+    },
+
+    {
+        nome: "Sargento Flavia Louzada",
+        cargo: "Deputado Estadual",
+        foto: "sargento-flavia-louzada.jpg",
+        numero: 11190,
+        partido: "PP",
+        votos: 0
+    },
+
+    {
+        nome: "Sargento Gustavo",
+        cargo: "Deputado Estadual",
+        foto: "sargento-gustavo.jpeg",
+        numero: 23454,
+        partido: "CIDADANIA",
+        votos: 0
+    },
+
+    {
+        nome: "Sérgio Fernandes",
+        cargo: "Deputado Estadual",
+        foto: "sergio-fernandes.jpg",
+        numero: 55000,
+        partido: "PSD",
+        votos: 0
+    },
+
+    {
+        nome: "Serginho Moreno",
+        cargo: "Deputado Estadual",
+        foto: "serginho-moreno.webp",
+        numero: 55040,
+        partido: "PSD",
+        votos: 0
+    },
+
+    {
+        nome: "Rui Saldanha",
+        cargo: "Deputado Estadual",
+        foto: "rui-saldanha.webp",
+        numero: 14192,
+        partido: "MISSÃO",
+        votos: 0
+    },
+
+    {
+        nome: "Serginho",
+        cargo: "Deputado Estadual",
+        foto: "serginho.webp",
+        numero: 12123,
+        partido: "PDT",
+        votos: 0
     }
 
 ];
@@ -567,10 +942,54 @@ const deputadosEstaduaisRJ = [
 
 const deputadosEstaduaisSP = [
 
+{
+    nome: "Eduardo Suplicy",
+    cargo: "Deputado Estadual",
+    foto: "eduardo-suplicy.jpeg",
+    numero: 13133,
+    partido: "PT",
+    votos: 0
+},
+
+{
+    nome: "Carlos Giannazi",
+    cargo: "Deputado Estadual",
+    foto: "carlos-giannazi.jpg",
+    numero: 50789,
+    partido: "PSOL",
+    votos: 0
+},
+
+{
+    nome: "Danilo Balas",
+    cargo: "Deputado Estadual",
+    foto: "danilo-balas.jpg",
+    numero: 22007,
+    partido: "PL",
+    votos: 0
+},
+
+{
+    nome: "Luiza Erundina",
+    cargo: "Deputado Estadual",
+    foto: "luiza-erundina.jpg",
+    numero: 50123,
+    partido: "PSOL",
+    votos: 0
+},
+
+{
+    nome: "Leci Brandão",
+    cargo: "Deputado Estadual",
+    foto: "leci-brandao.jpg",
+    numero: 50555,
+    partido: "PT",
+    votos: 0
+},
     {
         nome: "Abdul Jarour",
         cargo: "Deputado Estadual",
-        foto: "abdul-jarour.jpg",
+        foto: "abdul-jarour.webp",
         numero: 40999,
         partido: "PSB",
         votos: 0
@@ -612,10 +1031,7 @@ const deputadosEstaduaisSP = [
         votos: 0
     }
 
-];
-
-
-// =============================================
+];// =============================================
 // CRIAR CARD
 // =============================================
 
@@ -653,6 +1069,10 @@ function criarCard(candidato) {
     imagem.src = candidato.foto;
 
     imagem.alt = candidato.nome;
+
+    imagem.onerror = function () {
+        this.style.display = "none";
+    };
 
 
     const votos = document.createElement("p");
@@ -756,14 +1176,19 @@ function renderizarCandidatos(lista, id) {
         lista
     );
 
-} // =============================================
+}
+
+
+// =============================================
 // ATUALIZAR PORCENTAGENS
 // =============================================
 
 function atualizarPorcentagens(container, lista) {
 
     if (!container || !lista || lista.length === 0) {
+
         return;
+
     }
 
 
@@ -932,15 +1357,11 @@ function abrirAbaInicial() {
 
 function carregarDados() {
 
-    // Presidente
-
     renderizarCandidatos(
         presidentes,
         "lista-presidente"
     );
 
-
-    // Governador RJ
 
     renderizarCandidatos(
         governadoresRJ,
@@ -948,23 +1369,17 @@ function carregarDados() {
     );
 
 
-    // Senador RJ
-
     renderizarCandidatos(
         senadoresRJ,
         "lista-senador"
     );
 
 
-    // Deputado Federal RJ
-
     renderizarCandidatos(
         deputadosFederaisRJ,
         "lista-deputado-federal"
     );
 
-
-    // Deputado Estadual RJ
 
     renderizarCandidatos(
         deputadosEstaduaisRJ,
@@ -1183,3 +1598,54 @@ carregarDados();
 abrirAbaInicial();
 
 atualizarStatus();
+// =============================================
+// AVISO SOBRE A FONTE DOS DADOS
+// =============================================
+
+function criarAvisoFonteTSE() {
+
+    // Evita criar o aviso duas vezes
+    if (document.getElementById("aviso-tse")) {
+        return;
+    }
+
+    const status = document.querySelector(".ultima-atualizacao");
+
+    if (!status) {
+        return;
+    }
+
+    const aviso = document.createElement("div");
+
+    aviso.id = "aviso-tse";
+
+    aviso.innerHTML = `
+    <div class="aviso-tse-icone">🛡️</div>
+
+    <div class="aviso-tse-conteudo">
+
+        <strong>Fonte dos dados eleitorais</strong>
+
+        <p>
+            Os dados eleitorais oficiais apresentados neste projeto
+            são obtidos a partir das informações disponibilizadas
+            pelo Tribunal Superior Eleitoral (TSE).
+        </p>
+
+        <p>
+            O projeto utiliza os dados oficiais do TSE como fonte
+            para a apresentação das informações eleitorais.
+        </p>
+
+    </div>
+`;
+
+    status.insertAdjacentElement(
+        "afterend",
+        aviso
+    );
+}
+
+
+// Criar o aviso depois que a página carregar
+criarAvisoFonteTSE();
