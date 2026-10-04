@@ -53,7 +53,7 @@ const presidentes = [
     {
         nome: "Hertz Dias",
         cargo: "Presidente",
-        foto: "hertz1.jpg",
+        foto: "hertz.webp",
         numero: 16,
         partido: "PSTU",
         votos: 0
