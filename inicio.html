@@ -8,216 +8,754 @@
     <title>Eleições 2026</title>
 
     <style>
+
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
-            font-family: Arial, sans-serif;
-            background: #f5f7fb;
-            color: #1e293b;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f8fafc;
+            color: #172033;
         }
+
+        /* ==============================
+           TELA INICIAL
+        ============================== */
 
         #entrada {
             min-height: 100vh;
-            background: linear-gradient(135deg, #1e40af, #2563eb);
+            background: linear-gradient(135deg, #0f2f8f, #2563eb);
             color: white;
+
             display: flex;
             align-items: center;
             justify-content: center;
+
             text-align: center;
             padding: 30px;
-            transition: opacity 0.5s ease, transform 0.5s ease;
+
+            transition: 0.6s ease;
         }
 
         #entrada.saindo {
             opacity: 0;
             transform: translateY(-30px);
-            pointer-events: none;
         }
 
         .entrada-conteudo {
-            max-width: 700px;
+            width: 100%;
+            max-width: 760px;
+        }
+
+        .icone {
+            font-size: 65px;
+            margin-bottom: 20px;
         }
 
         .entrada-conteudo h1 {
-            font-size: 52px;
-            margin-bottom: 15px;
+            font-size: 48px;
+            letter-spacing: 2px;
+            margin-bottom: 18px;
         }
 
-        .entrada-subtitulo {
-            font-size: 25px;
+        .entrada-conteudo h2 {
+            font-size: 30px;
             margin-bottom: 20px;
+            font-weight: 500;
         }
 
         .entrada-conteudo p {
             font-size: 18px;
-            line-height: 1.6;
+            line-height: 1.7;
+            max-width: 650px;
+            margin: 0 auto;
+            opacity: 0.95;
         }
 
-        button {
-            margin-top: 30px;
-            padding: 15px 30px;
+        .botao-principal {
+            margin-top: 35px;
+
+            padding: 16px 32px;
+
             border: none;
-            border-radius: 10px;
+            border-radius: 12px;
+
             background: white;
-            color: #1e40af;
+            color: #1743a5;
+
             font-size: 18px;
             font-weight: bold;
+
             cursor: pointer;
+
+            transition: 0.2s;
         }
 
-        button:hover {
-            transform: scale(1.03);
+        .botao-principal:hover {
+            transform: translateY(-2px);
         }
+
+        .clique {
+            margin-top: 14px !important;
+            font-size: 13px !important;
+            opacity: 0.75 !important;
+        }
+
+        /* ==============================
+           INFORMAÇÕES
+        ============================== */
 
         #informacoes {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 60px 25px;
+            display: none;
+            max-width: 1100px;
+            margin: auto;
+            padding: 70px 25px;
         }
 
-        #informacoes section {
-            background: white;
-            margin-bottom: 25px;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+        #informacoes.mostrar {
+            display: block;
+            animation: aparecer 0.6s ease;
         }
 
-        #informacoes h2 {
+        @keyframes aparecer {
+
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+        .topo-info {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .topo-info h1 {
+            font-size: 38px;
+            margin-bottom: 18px;
+            color: #172033;
+        }
+
+        .topo-info h2 {
+            font-size: 26px;
+            margin-bottom: 22px;
             color: #1e40af;
-            margin-bottom: 15px;
         }
 
-        #informacoes p {
-            line-height: 1.7;
+        .topo-info p {
+            max-width: 800px;
+            margin: auto;
+            font-size: 17px;
+            line-height: 1.8;
             color: #475569;
         }
 
-        #informacoes .final {
-            text-align: center;
+        /* ==============================
+           BLOCO INFORMAÇÃO
+        ============================== */
+
+        .bloco-info {
+            background: white;
+            border-radius: 18px;
+            padding: 35px;
+            margin-bottom: 60px;
+
+            box-shadow: 0 8px 30px rgba(15, 23, 42, 0.07);
         }
 
-        footer {
+        .icone-info {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .bloco-info h3 {
+            font-size: 24px;
+            color: #1e40af;
+            margin-bottom: 12px;
+        }
+
+        .bloco-info p {
+            color: #475569;
+            line-height: 1.7;
+        }
+
+        /* ==============================
+           TÍTULOS
+        ============================== */
+
+        .secao-titulo {
             text-align: center;
-            padding: 30px 20px;
+            margin-bottom: 30px;
+        }
+
+        .secao-titulo span {
+            display: block;
+            color: #2563eb;
+            font-size: 14px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .secao-titulo h2 {
+            font-size: 32px;
+        }
+
+        /* ==============================
+           COMO FUNCIONA
+        ============================== */
+
+        .etapas {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+            margin-bottom: 70px;
+        }
+
+        .etapa {
+            background: white;
+            padding: 30px;
+            border-radius: 18px;
+
+            box-shadow: 0 6px 25px rgba(15, 23, 42, 0.06);
+        }
+
+        .numero {
+            font-size: 34px;
+            font-weight: bold;
+            color: #2563eb;
+            margin-bottom: 15px;
+        }
+
+        .etapa h3 {
+            margin-bottom: 12px;
+            font-size: 20px;
+        }
+
+        .etapa p {
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        /* ==============================
+           CARGOS
+        ============================== */
+
+        .cargos {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-bottom: 70px;
+        }
+
+        .cargo {
+            background: white;
+            padding: 28px;
+            border-radius: 18px;
+
+            box-shadow: 0 6px 25px rgba(15, 23, 42, 0.06);
+
+            transition: 0.2s;
+        }
+
+        .cargo:hover {
+            transform: translateY(-3px);
+        }
+
+        .cargo-icone {
+            font-size: 38px;
+            margin-bottom: 15px;
+        }
+
+        .cargo h3 {
+            margin-bottom: 10px;
+            font-size: 21px;
+        }
+
+        .cargo p {
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        /* ==============================
+           RESULTADOS
+        ============================== */
+
+        .resultados {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+
+            box-shadow: 0 8px 30px rgba(15, 23, 42, 0.07);
+
+            margin-bottom: 50px;
+        }
+
+        .resultados h2 {
+            font-size: 30px;
+            margin-bottom: 18px;
+        }
+
+        .resultados p {
+            color: #64748b;
+            line-height: 1.7;
+            max-width: 750px;
+            margin: auto;
+        }
+
+        .fonte {
+            margin-top: 30px;
+            padding: 18px;
+            border-radius: 12px;
+            background: #f1f5f9;
+        }
+
+        .fonte strong {
+            display: block;
+            color: #1e40af;
+            margin-top: 5px;
+        }
+
+        /* ==============================
+           FINAL
+        ============================== */
+
+        .final {
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .final-icone {
+            font-size: 55px;
+            margin-bottom: 20px;
+        }
+
+        .final h2 {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .final p {
+            color: #64748b;
+            margin-bottom: 25px;
+        }
+
+        .botao-resultados {
+            padding: 16px 32px;
+            border: none;
+            border-radius: 12px;
+
+            background: #1e40af;
+            color: white;
+
+            font-size: 17px;
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+        /* ==============================
+           RODAPÉ
+        ============================== */
+
+        footer {
             background: #0f172a;
             color: white;
+            text-align: center;
+            padding: 35px 20px;
         }
 
         footer p {
-            margin: 8px 0;
+            margin: 7px 0;
+            opacity: 0.85;
         }
 
-        @media (max-width: 600px) {
+        /* ==============================
+           CELULAR
+        ============================== */
+
+        @media (max-width: 700px) {
+
             .entrada-conteudo h1 {
-                font-size: 38px;
+                font-size: 36px;
             }
 
-            .entrada-subtitulo {
-                font-size: 21px;
+            .entrada-conteudo h2 {
+                font-size: 23px;
             }
 
-            .entrada-conteudo p {
-                font-size: 16px;
+            .etapas {
+                grid-template-columns: 1fr;
             }
+
+            .cargos {
+                grid-template-columns: 1fr;
+            }
+
+            .topo-info h1 {
+                font-size: 30px;
+            }
+
+            .topo-info h2 {
+                font-size: 22px;
+            }
+
         }
+
     </style>
+
 </head>
 
 <body>
+
+    <!-- ==============================
+         TELA DE ENTRADA
+    ============================== -->
 
     <section id="entrada">
 
         <div class="entrada-conteudo">
 
-            <h1>ELEIÇÕES 2026</h1>
+            <div class="icone">
+                🗳️
+            </div>
 
-            <p class="entrada-subtitulo">
+            <h1>
+                ELEIÇÕES 2026
+            </h1>
+
+            <h2>
                 Informação eleitoral em um só lugar.
-            </p>
+            </h2>
 
             <p>
-                Consulte informações sobre as eleições,
-                candidatos e resultados em um só lugar.
+                Consulte informações sobre os principais cargos
+                das Eleições 2026 e acompanhe os resultados da votação.
             </p>
 
-            <button id="botaoEntrar">
+            <button
+                class="botao-principal"
+                id="botaoEntrar">
                 Continuar →
             </button>
+
+            <p class="clique">
+                Clique para conhecer o projeto
+            </p>
 
         </div>
 
     </section>
 
 
+    <!-- ==============================
+         PÁGINA DE INFORMAÇÕES
+    ============================== -->
+
     <main id="informacoes">
 
-        <section>
+        <section class="topo-info">
+
+            <h1>
+                ELEIÇÕES 2026
+            </h1>
 
             <h2>
-                Entenda a eleição antes de consultar os resultados
+                Entenda a eleição antes de consultar os resultados.
             </h2>
 
             <p>
-                Este projeto reúne informações eleitorais para facilitar
-                a consulta dos eleitores durante as Eleições 2026.
+                O Eleições 2026 foi criado para reunir, em uma página
+                simples, informações sobre candidatos, cargos e
+                resultados eleitorais.
+            </p>
+
+            <br>
+
+            <p>
+                A proposta é facilitar a consulta das informações
+                durante o período eleitoral, permitindo que o visitante
+                encontre rapidamente o cargo ou candidato que procura.
             </p>
 
         </section>
 
+
+        <!-- INFORMAÇÃO -->
+
+        <section class="bloco-info">
+
+            <div class="icone-info">
+                🗳️
+            </div>
+
+            <h3>
+                Informação
+            </h3>
+
+            <p>
+                Consulte os dados apresentados pelo projeto e
+                acompanhe a apuração.
+            </p>
+
+        </section>
+
+
+        <!-- COMO FUNCIONA -->
 
         <section>
 
-            <h2>Como funciona</h2>
+            <div class="secao-titulo">
 
-            <p>
-                As eleições permitem que os eleitores escolham seus
-                representantes para os diferentes cargos públicos.
-            </p>
+                <span>
+                    COMO FUNCIONA
+                </span>
+
+                <h2>
+                    Uma consulta simples
+                </h2>
+
+            </div>
+
+
+            <div class="etapas">
+
+                <div class="etapa">
+
+                    <div class="numero">
+                        01
+                    </div>
+
+                    <h3>
+                        Escolha o cargo
+                    </h3>
+
+                    <p>
+                        Consulte Presidente, Governador, Senador,
+                        Deputado Federal ou Deputado Estadual.
+                    </p>
+
+                </div>
+
+
+                <div class="etapa">
+
+                    <div class="numero">
+                        02
+                    </div>
+
+                    <h3>
+                        Consulte os candidatos
+                    </h3>
+
+                    <p>
+                        Veja informações como nome, número, partido
+                        e fotografia dos candidatos apresentados.
+                    </p>
+
+                </div>
+
+
+                <div class="etapa">
+
+                    <div class="numero">
+                        03
+                    </div>
+
+                    <h3>
+                        Acompanhe a apuração
+                    </h3>
+
+                    <p>
+                        Durante a divulgação dos resultados, o projeto
+                        poderá apresentar os dados eleitorais correspondentes.
+                    </p>
+
+                </div>
+
+            </div>
 
         </section>
 
+
+        <!-- CARGOS -->
 
         <section>
 
-            <h2>Cargos em disputa</h2>
+            <div class="secao-titulo">
 
-            <p>
-                Presidente, Governador, Senador, Deputado Federal
-                e Deputado Estadual.
-            </p>
+                <span>
+                    CARGOS
+                </span>
+
+                <h2>
+                    O que você poderá consultar
+                </h2>
+
+            </div>
+
+
+            <div class="cargos">
+
+                <div class="cargo">
+
+                    <div class="cargo-icone">
+                        🇧🇷
+                    </div>
+
+                    <h3>
+                        Presidente
+                    </h3>
+
+                    <p>
+                        Eleição para a Presidência da República.
+                    </p>
+
+                </div>
+
+
+                <div class="cargo">
+
+                    <div class="cargo-icone">
+                        🏛️
+                    </div>
+
+                    <h3>
+                        Governador
+                    </h3>
+
+                    <p>
+                        Informações sobre a disputa para o governo estadual.
+                    </p>
+
+                </div>
+
+
+                <div class="cargo">
+
+                    <div class="cargo-icone">
+                        🏛️
+                    </div>
+
+                    <h3>
+                        Senador
+                    </h3>
+
+                    <p>
+                        Consulte os candidatos ao Senado Federal.
+                    </p>
+
+                </div>
+
+
+                <div class="cargo">
+
+                    <div class="cargo-icone">
+                        📜
+                    </div>
+
+                    <h3>
+                        Deputado Federal
+                    </h3>
+
+                    <p>
+                        Informações sobre candidatos à Câmara dos Deputados.
+                    </p>
+
+                </div>
+
+
+                <div class="cargo">
+
+                    <div class="cargo-icone">
+                        📋
+                    </div>
+
+                    <h3>
+                        Deputado Estadual
+                    </h3>
+
+                    <p>
+                        Consulte os candidatos à Assembleia Legislativa.
+                    </p>
+
+                </div>
+
+            </div>
 
         </section>
 
 
-        <section>
+        <!-- RESULTADOS -->
 
-            <h2>Apuração</h2>
+        <section class="resultados">
+
+            <span style="display:block; color:#2563eb; font-size:14px; font-weight:bold; letter-spacing:2px; margin-bottom:12px;">
+                RESULTADOS
+            </span>
+
+            <h2>
+                Acompanhe as informações eleitorais.
+            </h2>
 
             <p>
-                Durante a apuração, os resultados podem ser
-                atualizados conforme os dados eleitorais oficiais
-                forem disponibilizados.
+                Os resultados eleitorais oficiais são divulgados pela
+                Justiça Eleitoral. O projeto utiliza o Tribunal Superior
+                Eleitoral como referência para os dados eleitorais.
             </p>
+
+
+            <div class="fonte">
+
+                FONTE
+
+                <strong>
+                    Tribunal Superior Eleitoral
+                </strong>
+
+                <strong>
+                    TSE
+                </strong>
+
+            </div>
 
         </section>
 
+
+        <!-- FINAL -->
 
         <section class="final">
+
+            <div class="final-icone">
+                🗳️
+            </div>
 
             <h2>
                 Pronto para consultar?
             </h2>
 
             <p>
-                Acesse a página de resultados e consulte os candidatos.
+                Clique abaixo para acessar a página de resultados
+                das Eleições 2026.
             </p>
 
-            <button id="botaoFinal">
+            <button
+                class="botao-resultados"
+                id="botaoFinal">
                 Ver resultados →
             </button>
 
@@ -226,21 +764,69 @@
     </main>
 
 
+    <!-- RODAPÉ -->
+
     <footer>
 
         <p>
-            Projeto Eleições 2026
+            <strong>
+                ELEIÇÕES 2026
+            </strong>
         </p>
 
         <p>
-            Informações eleitorais com referência aos dados
-            disponibilizados pelo Tribunal Superior Eleitoral (TSE).
+            Projeto independente de informação eleitoral.
+        </p>
+
+        <p>
+            Dados eleitorais: Tribunal Superior Eleitoral (TSE).
         </p>
 
     </footer>
 
 
-    <script src="inicio.js"></script>
+    <script>
+
+        const botaoEntrar =
+            document.getElementById("botaoEntrar");
+
+        const entrada =
+            document.getElementById("entrada");
+
+        const informacoes =
+            document.getElementById("informacoes");
+
+        const botaoFinal =
+            document.getElementById("botaoFinal");
+
+
+        botaoEntrar.addEventListener("click", function () {
+
+            entrada.classList.add("saindo");
+
+            setTimeout(function () {
+
+                entrada.style.display = "none";
+
+                informacoes.classList.add("mostrar");
+
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
+
+            }, 500);
+
+        });
+
+
+        botaoFinal.addEventListener("click", function () {
+
+            window.location.href = "resultados.html";
+
+        });
+
+    </script>
 
 </body>
 
